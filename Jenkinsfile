@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Build Demo Application'
-        sh 'sh run_build_script.sh'
+        bat 'sh -c run_build_script.sh'
       }
     }
 
@@ -15,7 +15,7 @@ pipeline {
           agent any
           steps {
             echo 'Run Linux Tests'
-            sh 'sh run_linux_tests.sh'
+            bat 'sh -c run_linux_tests.sh'
           }
         }
 
