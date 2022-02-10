@@ -2,6 +2,7 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      agent any
       steps {
         echo 'Build Demo Application'
         sh 'sh run_build_script.sh'
@@ -11,6 +12,7 @@ pipeline {
     stage('Linux Tests') {
       parallel {
         stage('Linux Tests') {
+          agent any
           steps {
             echo 'Run Linux Tests'
             sh 'sh run_linux_tests.sh'
@@ -18,6 +20,7 @@ pipeline {
         }
 
         stage('Windows Tests') {
+          agent any
           steps {
             echo 'Run Windows Tests'
           }
@@ -27,6 +30,7 @@ pipeline {
     }
 
     stage('Deploy Staging') {
+      agent any
       steps {
         echo 'Deploy to staging environment'
         input 'OK to deploy product'
@@ -34,6 +38,7 @@ pipeline {
     }
 
     stage('Deploy Production') {
+      agent any
       steps {
         echo 'Deploy to Prod'
       }
